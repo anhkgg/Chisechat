@@ -20,7 +20,16 @@
   </head>
 	<script>
 	function down() {
-		window.open("https://github.com/anhkgg/Chisechat/raw/master/Chisechat.exe");
+		var url = window.location.href;
+		var reg = /.*?v=([\d\.]+)/i; 
+		var downurl = "https://github.com/anhkgg/Chisechat/raw/master/Chisechat.exe";
+		url.replace(reg, function() { 
+			//console.log(arguments.length); //5 
+			//console.log(arguments[1]);//test
+			downurl = "https://github.com/anhkgg/Chisechat/raw/master/Chisechat-"+arguments[1]+".exe";
+		}); 
+		console.log(downurl);
+		window.open(downurl);
 		window.location.href="index.html";
 	}
 	</script>
